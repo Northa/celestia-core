@@ -491,7 +491,7 @@ FOR_LOOP:
 		}
 
 		if time.Since(c.getLastMessageAt()) > c.config.PongTimeout {
-			err = errors.New("pong timeout_test", c.config.PongTimeout)
+			err = errors.New("pong timeout_test_80")
 		}
 
 		if err != nil {
