@@ -45,8 +45,8 @@ const (
 	defaultSendRate            = int64(512000) // 500KB/s
 	defaultRecvRate            = int64(512000) // 500KB/s
 	defaultSendTimeout         = 10 * time.Second
-	defaultPingInterval        = 60 * time.Second
-	defaultPongTimeout         = 270 * time.Second
+	defaultPingInterval        = 90 * time.Second
+	defaultPongTimeout         = 80 * time.Second
 )
 
 type receiveCbFunc func(chID byte, msgBytes []byte)
@@ -491,7 +491,7 @@ FOR_LOOP:
 		}
 
 		if time.Since(c.getLastMessageAt()) > c.config.PongTimeout {
-			err = errors.New("pong timeout")
+			err = errors.New("pong timeout_test", c.config.PongTimeout)
 		}
 
 		if err != nil {
